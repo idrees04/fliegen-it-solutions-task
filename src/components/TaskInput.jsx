@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const TaskInput = ({ onAddTask }) => {
   const [taskName, setTaskName] = useState('');
@@ -29,6 +30,10 @@ const TaskInput = ({ onAddTask }) => {
       </Button>
     </Form>
   );
+};
+
+TaskInput.propTypes = {
+  onAddTask: PropTypes.func.isRequired,
 };
 
 export default TaskInput;
