@@ -11,6 +11,14 @@ function App() {
     setTasks([newTask, ...tasks]);
   };
 
+  const toggleTaskCompletion = (taskId) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
   const deleteTask = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
