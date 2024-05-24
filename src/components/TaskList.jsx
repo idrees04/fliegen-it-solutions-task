@@ -1,5 +1,5 @@
-import React from 'react';
 import { ListGroup, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const TaskList = ({
   tasks,
@@ -49,5 +49,18 @@ const TaskList = ({
     </Button>
   </>
 );
+
+TaskList.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  onToggleTaskCompletion: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onClearCompletedTasks: PropTypes.func.isRequired,
+};
 
 export default TaskList;

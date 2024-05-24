@@ -56,4 +56,3 @@ To deploy your app, you can use any hosting service that supports static sites. 
 ### Troubleshooting
 
 If you encounter any issues, you can refer to the troubleshooting section in the [Vite documentation](https://vitejs.dev/guide/faq.html).
-

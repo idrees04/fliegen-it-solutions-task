@@ -1,7 +1,7 @@
-import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import TaskList from '../components/TaskList';
+import PropTypes from 'prop-types';
 
 const TaskListPage = ({
   tasks,
@@ -31,4 +31,16 @@ const TaskListPage = ({
   );
 };
 
+TaskListPage.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  onToggleTaskCompletion: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+  onClearCompletedTasks: PropTypes.func.isRequired,
+};
 export default TaskListPage;
