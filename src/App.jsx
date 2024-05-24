@@ -4,7 +4,7 @@ import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+   const [tasks, setTasks] = useState([]);
 
   const addTask = (taskName) => {
     const newTask = { id: Date.now(), name: taskName, completed: false };
@@ -26,10 +26,17 @@ function App() {
   const clearCompletedTasks = () => {
     setTasks(tasks.filter((task) => !task.completed));
   };
+
   return (
     <Container>
       <h1 className="my-4">Task Tracker</h1>
       <TaskInput addTask={addTask} />
+      <TaskList
+        tasks={tasks}
+        toggleTaskCompletion={toggleTaskCompletion}
+        deleteTask={deleteTask}
+        clearCompletedTasks={clearCompletedTasks}
+      />
     </Container>
   );
 }
