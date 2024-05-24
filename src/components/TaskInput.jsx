@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-const TaskInput = ({ addTask }) => {
+const TaskInput = ({ onAddTask }) => {
   const [taskName, setTaskName] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (taskName.trim()) {
-      addTask(taskName);
+      onAddTask(taskName);
       setTaskName('');
+      navigate('/tasks');
     }
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="mb-3">
+    <Form onSubmit={handleSubmit}>
       <Form.Group controlId="taskName">
         <Form.Control
           type="text"

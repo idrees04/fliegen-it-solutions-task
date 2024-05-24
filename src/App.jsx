@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import TaskInput from './components/TaskInput';
-import TaskList from './components/TaskList';
+import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import AddTaskPage from './pages/AddTaskPage';
+import TaskListPage from './pages/TaskListPage';
 
-function App() {
-   const [tasks, setTasks] = useState([]);
+const App = () => {
+  const [tasks, setTasks] = useState([]);
 
   const addTask = (taskName) => {
     const newTask = { id: Date.now(), name: taskName, completed: false };
@@ -28,17 +28,22 @@ function App() {
   };
 
   return (
-    <Container>
-      <h1 className="my-4">Task Tracker</h1>
-      <TaskInput addTask={addTask} />
-      <TaskList
-        tasks={tasks}
-        toggleTaskCompletion={toggleTaskCompletion}
-        deleteTask={deleteTask}
-        clearCompletedTasks={clearCompletedTasks}
+    <Routes>
+      <Route path="/add" element={<AddTaskPage onAddTask={addTask} />} />
+      <Route
+        path="/tasks"
+        element={
+          <TaskListPage
+            tasks={tasks}
+            onToggleTaskCompletion={toggleTaskCompletion}
+            onDeleteTask={deleteTask}
+            onClearCompletedTasks={clearCompletedTasks}
+          />
+        }
       />
-    </Container>
+      <Route path="*" element={<Navigate to="/tasks" />} />
+    </Routes>
   );
-}
+};
 
 export default App;
