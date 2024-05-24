@@ -11,6 +11,13 @@ function App() {
     setTasks([newTask, ...tasks]);
   };
 
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
+  const clearCompletedTasks = () => {
+    setTasks(tasks.filter((task) => !task.completed));
+  };
   return (
     <Container>
       <h1 className="my-4">Task Tracker</h1>
