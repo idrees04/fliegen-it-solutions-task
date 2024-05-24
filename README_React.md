@@ -2,7 +2,22 @@
 
 This project is a task tracker application built with React and React Router.
 
-## Available Scripts
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed on your development machine:
+
+- Node.js (v14.x or later)
+- npm (v6.x or later) or yarn (v1.x or later)
+
+### Setup
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/idrees04/fliegen-it-solutions-task.git
+   cd fliegen-it-solutions-task
 
 In the project directory, you can run:
 
