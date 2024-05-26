@@ -47,14 +47,6 @@ Runs ESLint to check for lint errors in JavaScript and JSX files.
 Runs the built app in preview mode using Vite.\
 Open [http://localhost:4173](http://localhost:4173) to view it in your browser.
 
-### `npm run format`
-
-Formats the code using Prettier.
-
-### `npm run format:check`
-
-Checks the code formatting using Prettier.
-
 ## Learn More
 
 You can learn more about Vite in the [Vite documentation](https://vitejs.dev/).
